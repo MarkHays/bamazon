@@ -63,10 +63,12 @@ var promptCustomer = function (res) {
                     if ((res[id].stockquantity - answer.quant) > 0) {
                         connection.query("UPDATE products SET stockquantity='" + (res[id].stockquantity - answer.quant) + "' WHERE productname='" + product + "'", function (err, res2) {
                             console.log("Product Bought!");
+						console.log('Thank you for shopping with us!');
+						console.log("\n---------------------------------------------------------------------\n");
                             makeTable();
                         })
                     } else {
-                        console.log("Not a valid selection!");
+                        console.log("Insufficient Quantity!");
                         promptCustomer(res);
                     }
                 })
